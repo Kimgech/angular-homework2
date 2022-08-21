@@ -1,4 +1,4 @@
-<form [formGroup]="studentForm" (ngSubmit)="submitted(studentForm)">
+<form [formGroup]="studentForm" (ngSubmit)="submitted()">
   <div class="mt-5">
     <button
       (click)="onClick()"
@@ -34,10 +34,11 @@
       <div class="flex">
         <div class="flex items-center mr-4">
           <input formControlName="gender"
+          
             checked="" 
             id="inline-checked-radio"
             type="radio"
-            value="male"
+            value="Male"
             name="gender"
             class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
           />
@@ -51,7 +52,7 @@
           <input formControlName="gender"
             id="inline-radio" 
             type="radio"
-            value="female"
+            value="Female"
             name="gender"
             class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
           />
@@ -65,7 +66,7 @@
           <input formControlName="gender" 
             id="inline-2-radio"
             type="radio"
-            value="other"
+            value="Other"
             name="gender"
             class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
           />
@@ -88,8 +89,9 @@
           id="countries"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-300 focus:border-cyan-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         >
-          <option selected="" *ngFor="let list of sub">{{ list.subject }}</option>
-          <!-- <option name="subject" value="" ></option> -->
+        <option selected="" name="subject" >Choose subject</option>
+          <option *ngFor="let list of sub">{{ list.subject }}</option>
+         
         </select>
       </div>
       <button

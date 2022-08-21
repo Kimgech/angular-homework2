@@ -48,7 +48,7 @@ export class FormStudentComponent implements OnInit {
     (this.hide = !this.hide), (this.add = !this.add);
   }
 
-  submitted(studentForm:any){
+  submitted(){
       // this.stu = <IStudent>this.studentForm.value;
       // this._stuService.addNewStudent().subscribe((getStudent : IStudent[]) =>{
       //   console.warn(this.stu)
@@ -58,9 +58,9 @@ export class FormStudentComponent implements OnInit {
       console.log("Submitted");
       
       this.stu = <IStudent> this.studentForm.value;
-      this.stuService.addStudent().subscribe((students: IStudent[])=>{
-        // students.push(this.stu)
-        console.log("Students : " + students);
+      this.stuService.addStudent().subscribe((students:IStudent[])=>{
+        students.push(this.stu)
+        console.log("Students : " + students.values);
       
         console.log(this.stu);
         

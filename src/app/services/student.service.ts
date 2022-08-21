@@ -7,7 +7,7 @@ import { IStudent } from '../model/istudent';
 })
 export class StudentService {
   studentObs$ !:Observable<IStudent[]>;
-  student!:IStudent[]
+  student:IStudent[]=[]
 
   constructor() {
     this.studentObs$ = of(this.student);
@@ -18,6 +18,8 @@ export class StudentService {
    }
 
    addStudent():Observable<any>{
+    console.log("addstudent");
+    
     return this.studentObs$;
    }
 
