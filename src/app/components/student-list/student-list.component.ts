@@ -1,4 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IStudent } from 'src/app/model/istudent';
+import { ISubject } from 'src/app/model/isubject';
+import { StudentService } from 'src/app/services/student.service';
+import { SubjectService } from 'src/app/services/subject.service';
 
 @Component({
   selector: 'app-student-list',
@@ -6,12 +10,19 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
-  subject = ["Spring","DevOps","Data Analytics","IOS","Android","Blockchain"]
-  
-  constructor() { }
+
+  sub!:ISubject[];
+  stu!: IStudent[];
+
+  constructor(private subService: SubjectService , private stuService:StudentService) { }
 
   ngOnInit(): void {
-    this.subject;
+    this.subService.subjectObs$.subscribe((subject:ISubject[])=>(this.sub = subject))
+    this.stuService.studentObs$.subscribe((student:IStudent[])=>(this.stu = student))
+
+    this.stuService.getStudent().subscribe((student:IStudent[])=> this.stu = student)
+    // this.stuService.studentObs$.subscribe(())
+    
   }
  
   
