@@ -24,6 +24,11 @@ export class StudentListComponent implements OnInit {
     // this.stuService.studentObs$.subscribe(())
     
   }
+
+  onDelete(id:number){
+    this.stu.splice(id,1);
+    // this.data.splice(index,1)
+  }
  
   
 }

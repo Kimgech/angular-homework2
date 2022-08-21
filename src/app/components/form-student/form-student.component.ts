@@ -23,9 +23,9 @@ export class FormStudentComponent implements OnInit {
   stu!:IStudent;
 
   studentForm = this.student.group({
-    name:['', Validators.required,],
-    gender:[''],
-    subject:['']
+    name:['', Validators.required],
+    gender:['', Validators.required],
+    subject:['',Validators.required]
   })
 
   constructor(private subService: SubjectService , private student: FormBuilder , private stuService: StudentService) {}
