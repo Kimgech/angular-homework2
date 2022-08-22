@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { filter, Observable, of } from 'rxjs';
 import { IStudent } from '../model/istudent';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { IStudent } from '../model/istudent';
 })
 export class StudentService {
   studentObs$ !:Observable<IStudent[]>;
-  student:IStudent[]=[]
+  student:IStudent[]=[{name:"Kimgech Khou",gender:"Female",subject:"Spring"}]
 
   constructor() {
     this.studentObs$ = of(this.student);

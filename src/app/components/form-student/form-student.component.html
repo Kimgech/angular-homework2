@@ -48,6 +48,7 @@
             class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >Male
           </label>
+
         </div>
         <div class="flex items-center mr-4">
           <input formControlName="gender"
@@ -77,8 +78,10 @@
             >Other</label
           >
         </div>
+
       </div>
-  
+      <div *ngIf="!studentForm.controls.gender.valid && studentForm.controls.gender.touched" class="text-sm mt-0 text-red-500 ">Gender is require</div>
+
       <div class="mt-5">
         <label
           for="subject"
@@ -89,8 +92,8 @@
         formControlName="subject" 
           id="countries"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-300 focus:border-cyan-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        >
-        <option selected="" name="subject" >Choose subject</option>
+        >Choose subject
+        <option name="subject" selected value='' >Choose subject</option>
           <option *ngFor="let list of sub">{{ list.subject }}</option>
          
         </select>
@@ -103,6 +106,5 @@
         Submit
       </button>
     </div>
-  </div>
-  
+  </div>  
 </form>

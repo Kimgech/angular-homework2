@@ -11,10 +11,10 @@
       >
     </li>
     <li class="mr-2" *ngFor="let item of sub">
-      <a
-        href="#"
+      <button
+        (click)="selectSubject(sub)"
         class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300"
-        >{{item.subject}}</a
+        >{{item.subject}}</button
       >
     </li>
     

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IStudent } from 'src/app/model/istudent';
 import { ISubject } from 'src/app/model/isubject';
 import { StudentService } from 'src/app/services/student.service';
@@ -13,6 +13,9 @@ export class StudentListComponent implements OnInit {
 
   sub!:ISubject[];
   stu!: IStudent[];
+  select!:IStudent[];
+  @Output()
+  selected = new EventEmitter();
 
   constructor(private subService: SubjectService , private stuService:StudentService) { }
 
@@ -25,6 +28,13 @@ export class StudentListComponent implements OnInit {
   onDelete(id:number){
     this.stu.splice(id,1);
   }
- 
   
+  selectSubject(subject:any){
+    this.selected.emit(subject)
+  }
+
+  sortSubject(sub:any){
+    this.select = sub;
+    
+  }
 }
