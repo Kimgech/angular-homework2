@@ -18,16 +18,14 @@ export class StudentListComponent implements OnInit {
 
   ngOnInit(): void {
     this.subService.subjectObs$.subscribe((subject:ISubject[])=>(this.sub = subject))
-    this.stuService.studentObs$.subscribe((student:IStudent[])=>(this.stu = student))
+    // this.stuService.studentObs$.subscribe((student:IStudent[])=>(this.stu = student))
 
     this.stuService.getStudent().subscribe((student:IStudent[])=> this.stu = student)
-    // this.stuService.studentObs$.subscribe(())
     
   }
 
   onDelete(id:number){
     this.stu.splice(id,1);
-    // this.data.splice(index,1)
   }
  
   

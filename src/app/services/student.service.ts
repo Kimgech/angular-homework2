@@ -18,15 +18,6 @@ export class StudentService {
    }
 
    addStudent():Observable<any>{
-    console.log("addstudent");
-    
     return this.studentObs$;
    }
-
-  //  getAllStudent():Observable<IStudent[]>{
-  //   return this.studentObs$;
-  //  }
-  //  addNewStudent():Observable<any>{
-  //   return this.studentObs$;
-  //  }
 }

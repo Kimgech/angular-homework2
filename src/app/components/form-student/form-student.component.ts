@@ -18,10 +18,8 @@ export class FormStudentComponent implements OnInit {
   add: boolean = false;
 
   sub: ISubject[] = [];
-
-  // stu: FormData[]=[];
   stu!:IStudent;
-
+  submit = false;
   studentForm = this.student.group({
     name:['', Validators.required],
     gender:['', Validators.required],
@@ -55,14 +53,13 @@ export class FormStudentComponent implements OnInit {
       //   getStudent?.push(this.stu);
        
       // })
+      this.submit=true;
       console.log("Submitted");
-      
       this.stu = <IStudent> this.studentForm.value;
       this.stuService.addStudent().subscribe((students:IStudent[])=>{
         students.push(this.stu)
         console.log("Students : " + students.values);
-      
-        console.log(this.stu);
+        // console.log(this.stu);
         
       })
 
