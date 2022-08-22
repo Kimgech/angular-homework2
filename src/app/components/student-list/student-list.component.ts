@@ -19,9 +19,7 @@ export class StudentListComponent implements OnInit {
   ngOnInit(): void {
     this.subService.subjectObs$.subscribe((subject:ISubject[])=>(this.sub = subject))
     // this.stuService.studentObs$.subscribe((student:IStudent[])=>(this.stu = student))
-
     this.stuService.getStudent().subscribe((student:IStudent[])=> this.stu = student)
-    
   }
 
   onDelete(id:number){

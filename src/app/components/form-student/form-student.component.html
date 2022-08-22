@@ -23,7 +23,7 @@
           placeholder="Please input name"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         />
-        <p *ngIf="!studentForm.controls.name.valid" class="text-sm mt-0 text-red-500 ml-2 ">Name is require</p>
+        <p *ngIf="!studentForm.controls.name.valid && studentForm.controls.name.touched" class="text-sm mt-0 text-red-500 ml-2 ">Name is require</p>
 
       </div>
       <label

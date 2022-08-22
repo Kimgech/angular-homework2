@@ -28,40 +28,26 @@ export class FormStudentComponent implements OnInit {
 
   constructor(private subService: SubjectService , private student: FormBuilder , private stuService: StudentService) {}
 
-  
   ngOnInit(): void {
     this.subService.subjectObs$.subscribe(
       (subject: ISubject[]) => (this.sub = subject)
     );
-
     // this.studentService.studentObs$.subscribe(
     //   (student:IStudent[])=>(this.stu = student)
     // );
-    // console.log(this.studentForm);
-    
-    // console.log(this.studentForm.value);
-    
   }
   onClick() {
     (this.hide = !this.hide), (this.add = !this.add);
   }
 
   submitted(){
-      // this.stu = <IStudent>this.studentForm.value;
-      // this._stuService.addNewStudent().subscribe((getStudent : IStudent[]) =>{
-      //   console.warn(this.stu)
-      //   getStudent?.push(this.stu);
-       
-      // })
       this.submit=true;
       console.log("Submitted");
       this.stu = <IStudent> this.studentForm.value;
       this.stuService.addStudent().subscribe((students:IStudent[])=>{
         students.push(this.stu)
-        console.log("Students : " + students.values);
-        // console.log(this.stu);
-        
       })
-
+      console.log(this.stu);
+      
   }
 }
